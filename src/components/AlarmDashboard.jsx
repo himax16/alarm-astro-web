@@ -39,7 +39,9 @@ export default function AlarmDashboard() {
   // Play alarm sound only if enabled
   const playAlarmSound = (alarm) => {
     if (alarm.soundEnabled !== false) {
-      const audio = new window.Audio(`/sounds/default.wav`)
+      const audio = new window.Audio(
+        `${import.meta.env.BASE_URL}/sounds/default.wav`
+      )
       audio.play().catch(() => {})
     }
   }
@@ -49,7 +51,7 @@ export default function AlarmDashboard() {
     if ("Notification" in window && Notification.permission === "granted") {
       new Notification(`Alarm${alarm.name ? `: ${alarm.name}` : ''}`, {
         body: `Time: ${alarm.time}${alarm.category ? `\nCategory: ${alarm.category}` : ''}`,
-        icon: "/favicon.svg"
+        icon: `${import.meta.env.BASE_URL}/favicon.svg`
       })
     }
   }
