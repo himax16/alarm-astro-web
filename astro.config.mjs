@@ -8,7 +8,8 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   integrations: [react()],
-
+  output: 'static',
+  base: '/alarm-astro-web/',
   vite: {
     plugins: [tailwindcss()]
   }
