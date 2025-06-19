@@ -93,9 +93,9 @@ export default function CSVImport({ onImport }) {
             time: row.time,
             name: row.name,
             days: row.days ? row.days.split(";").map((day) => day.trim()) : [],
-            enabled: row.enabled === "true" || row.enabled === "1" || row.enabled === "yes",
+            enabled: row.enabled === "false" || row.enabled === "0" || row.enabled === "no" ? false : true,
             category: row.category || "General",
-            soundEnabled: row.soundEnabled === "true" || row.soundEnabled === "1" || row.soundEnabled === "yes" ? true : false,
+            soundEnabled: row.soundEnabled === "false" || row.soundEnabled === "0" || row.soundEnabled === "no" ? false : true,
           }))
 
         setIsUploading(false)
